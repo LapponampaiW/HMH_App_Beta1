@@ -8,5 +8,6 @@
     <dimen name="heading3">20dp</dimen>
     <dimen name="z1_linearlayout_margin_top">50dp</dimen>
     <dimen name="z2_margin_biggap">40dp</dimen>
+    <dimen name="z2_margin_smallgap">20dp</dimen>
     <dimen name="z2_margin_space">5dp</dimen>
 </resources>
