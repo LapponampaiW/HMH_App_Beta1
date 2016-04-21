@@ -33,7 +33,7 @@ public class SplashScreen extends AppCompatActivity {
                     t.show();
                     finish();
                 } else {
-                    startActivity(new Intent(SplashScreen.this, LoginActivity.class)); // เดี่ยวต้องเปลี่ยน
+                    startActivity(new Intent(SplashScreen.this, SignUpActivity.class)); // เดี่ยวต้องเปลี่ยน
                     Toast t = Toast.makeText(SplashScreen.this, Integer.toString(anInt) , Toast.LENGTH_LONG); //ลบภายหลัง
                     t.show();
                     finish();
