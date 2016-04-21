@@ -53,11 +53,24 @@ public class SignUpActivity extends AppCompatActivity {
                 if (string_rev_Username.equals("") || string_rev_Password.equals("") || string_rev_RePassword.equals("")) {
                     Toast t = Toast.makeText(SignUpActivity.this, "มีค่าว่าง", Toast.LENGTH_SHORT);
                     t.show();
+                } else {
+                    if (!string_rev_Password.equals(string_rev_RePassword)) {
+                        Toast t = Toast.makeText(SignUpActivity.this, "มีค่า Password ไม่เท่ากัน", Toast.LENGTH_SHORT);
+                        t.show();
+                    } else {
+                        // ทำการบันทึกค่าได้
+                        Toast t = Toast.makeText(SignUpActivity.this, "addValue _id,User,Password,Stay,Email", Toast.LENGTH_SHORT);
+                        t.show();
+                        myManage.addValueSignUp(string_rev_Username,string_rev_RePassword,"0",string_rev_Email);
+                    }
                 }
             }
         });
 
     }
+
+
+
 
     private void click_button_SignUp_ClearText() {
         button_ClearText.setOnClickListener(new View.OnClickListener() {

@@ -1,5 +1,6 @@
 package com.su.lapponampai_w.mhm_app_beta1;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -36,6 +37,19 @@ public class MyManage {
         int i = cursor.getCount();
 
         return i;
+    }
+
+    public void addValueSignUp(String user,
+                               String password,
+                               String stay,
+                               String email) {
+
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(ucolumn_User,user);
+        contentValues.put(ucolumn_Password,password);
+        contentValues.put(ucolumn_Stay,stay);
+        contentValues.put(ucolumn_Email,email);
+        writeSqLiteDatabase.insert(userTABLE, null, contentValues);
     }
 
 
