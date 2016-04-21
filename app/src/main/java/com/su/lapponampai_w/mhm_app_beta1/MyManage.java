@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.widget.Toast;
 
 /**
  * Created by apple on 4/20/16.
@@ -52,6 +53,55 @@ public class MyManage {
         writeSqLiteDatabase.insert(userTABLE, null, contentValues);
     }
 
+    public String[] readSQLite_userTABLE(int number_of_column) {
+        String[] strAllFood = null;
+        Cursor cursor = readSqLiteDatabase.query(userTABLE, column_userTABLE, null, null, null, null, null);
+
+        if (cursor != null) {
+            cursor.moveToFirst();
+            strAllFood = new String[cursor.getCount()];
+            for (int i = 0; i < cursor.getCount(); i++) {
+                switch (number_of_column) {
+                    case 0:
+                        strAllFood[i] = cursor.getString(cursor.getColumnIndex(ucolumn_id));
+                        break;
+                    case 1:
+                        strAllFood[i] = cursor.getString(cursor.getColumnIndex(ucolumn_User));
+                        break;
+                    case 2:
+                        strAllFood[i] = cursor.getString(cursor.getColumnIndex(ucolumn_Password));
+                        break;
+                    case 3:
+                        strAllFood[i] = cursor.getString(cursor.getColumnIndex(ucolumn_Stay));
+                        break;
+                    case 4:
+                        strAllFood[i] = cursor.getString(cursor.getColumnIndex(ucolumn_Email));
+                        break;
+                    default:
+                        break;
+                }
+                cursor.moveToNext();
+            }
+
+        }
+
+        return strAllFood;
+    }
+
+
+    public String getArrayStringIndex(String[] strAry,String keyWord_String) {
+
+        int fake = -500;
+        for (int i = 0; i < strAry.length; i++) {
+
+            if (strAry[i].equals(keyWord_String)) {
+                fake = i;
+            } else {
+                fake = -555;
+            }
+        }
+        return Integer.toString(fake);
+    }
 
 
 } //Main class
